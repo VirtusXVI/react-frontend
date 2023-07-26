@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 interface User {
   email: string;
   employeeNumber: number;
@@ -8,12 +11,16 @@ interface User {
   officeCode: string;
 }
 
-interface Props {
-  users: User[]
-}
+export default function Home() {
 
-export default function Home(props: Props) {
-  const { users } = props
+  let [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    axios.get<User[]>("http://158.180.238.74:8089/request").then((response) => {
+      setUsers(response.data);
+    });
+  }, []);
+
   return (
     <div>
       { users.map((user, key) => {
