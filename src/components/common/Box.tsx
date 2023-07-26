@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function Box(props: Props) {
+  console.log(props)
   return (
     <CustomBox {...props}>
       {props.children}

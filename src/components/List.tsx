@@ -22,10 +22,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       { users.map((user, key) => {
         return <div key={key}>{ user.firstName }</div>
       }) }
-    </div>
+    </>
   )
 }
