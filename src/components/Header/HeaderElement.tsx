@@ -2,11 +2,18 @@ import React from 'react'
 import Box from '../common/Box'
 
 interface Props{
-  title: string
+  section: Section
+  setSection: (id: number) => void
 }
 
-export default function HeaderElement(props:Props) {
+interface Section {
+  id: number;
+  title: string;
+}
+
+export default function HeaderElement(props: Props) {
+  const { section, setSection } = props
   return (
-    <Box flex={+true} align='center' justify='center'>{props.title}</Box>
+    <Box flex={+true} align='center' justify='center' cursor_pointer='true' onClick={() => setSection(section.id)}>{section.title}</Box>
   )
 }

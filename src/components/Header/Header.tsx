@@ -4,28 +4,29 @@ import { useState } from "react";
 
 interface Section {
   id: number;
-  name: string;
+  title: string;
 }
 
-interface Props{
-  setActiveSection: React.Dispatch<React.SetStateAction<number>>
+interface Props {
+  setSection: (id: number) => void;
 }
 
 export default function Header(props: Props) {
+  const { setSection } = props;
   const [sections] = useState<Section[]>([
-    { id: 1, name: "Impiegati",  },
-    { id: 2, name: "Statistiche" },
-    { id: 3, name: "Ordini" },
+    { id: 1, title: "Impiegati" },
+    { id: 2, title: "Statistiche" },
+    { id: 3, title: "Ordini" },
   ]);
   return (
     <>
-      <Box flex={+true} height={"60"}>
+      <Box flex={+true} height={"60"} borderb="1px solid black">
         {sections.map((section) => {
           return (
             <HeaderElement
               key={section.id}
-              title={section.name}
-              
+              section={section}
+              setSection={setSection}
             ></HeaderElement>
           );
         })}

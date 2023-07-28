@@ -1,21 +1,27 @@
-import Box from './common/Box';
-import List from './List'
-import Header from './Header/Header';
+import Box from "./common/Box";
+import List from "./Employees/List";
+import Orders from "./Orders/Orders";
+import Stats from "./Stats/Stats";
+import Header from "./Header/Header";
 import { useState } from "react";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<number>(1)
+  const [activeSection, setActiveSection] = useState<number>(1);
 
-  const checkActiveSection = () => {
-    if(activeSection === 1){
-      return <List />;
-    }
-  }
+  const setSection = (id: number) => {
+    setActiveSection(id);
+  };
 
   return (
     <Box>
-      <Header setActiveSection={setActiveSection} />
-      {checkActiveSection}
+      <Header setSection={setSection} />
+      {activeSection === 1 ? (
+        <List />
+      ) : activeSection === 2 ? (
+        <Stats />
+      ) : activeSection === 3 ? (
+        <Orders />
+      ) : null}
     </Box>
-  )
+  );
 }
