@@ -25,11 +25,17 @@ export default function Home() {
   }, []);
 
   return (
-    <Box paddingl="10" paddingr="10">
-      <Box margint="10" flex={"true"} height="50" align="center" justify="flex-end">
+    <Box paddingl="10" paddingr="10" marginb="20">
+      <Box
+        margint="10"
+        flex={"true"}
+        height="50"
+        align="center"
+        justify="flex-end"
+      >
         <Box
-          height="40"
-          width="80"
+          height="30"
+          width="40"
           marginr="10"
           border="1px solid black"
           border_radius="25px"
@@ -50,21 +56,43 @@ export default function Home() {
           )}
         </Box>
       </Box>
+      {visualization == true ? (
+        <Box>
+          <Box
+            height="40"
+            border="1px solid black"
+            paddingl="10"
+            paddingr="10"
+            flex="true"
+            bg="lightgrey"
+          >
+            <Box flex="true" align="center">
+              Full Name
+            </Box>
+            <Box flex="true" align="center">
+              Job Title
+            </Box>
+          </Box>
+        </Box>
+      ) : null}
       {visualization
         ? users.map((user, key) => {
             return (
-              <Box
-                key={key}
-                height="70"
-                border="1px solid black"
-                border_radius="25px"
-                margint="10"
-                paddingl="10"
-                paddingr="10"
-                flex="true"
-              >
-                <Box flex="true" align="center">
-                  {user.firstName + ' ' + user.lastName}
+              <Box>
+                <Box
+                  key={key}
+                  height="40"
+                  border="1px solid black"
+                  paddingl="10"
+                  paddingr="10"
+                  flex="true"
+                >
+                  <Box flex="true" align="center">
+                    {user.firstName + " " + user.lastName}
+                  </Box>
+                  <Box flex="true" align="center">
+                    {user.jobTitle}
+                  </Box>
                 </Box>
               </Box>
             );

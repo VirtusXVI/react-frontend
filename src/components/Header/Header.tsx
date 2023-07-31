@@ -14,9 +14,9 @@ interface Props {
 export default function Header(props: Props) {
   const { setSection } = props;
   const [sections] = useState<Section[]>([
-    { id: 1, title: "Impiegati" },
-    { id: 2, title: "Statistiche" },
-    { id: 3, title: "Ordini" },
+    { id: 1, title: "Employees" },
+    { id: 2, title: "Stats" },
+    { id: 3, title: "Orders" },
   ]);
   return (
     <>

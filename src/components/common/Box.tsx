@@ -20,6 +20,7 @@ interface Props {
   padding?: string;
   paddingl?: string;
   paddingr?: string;
+  bg?: string;
   cursor_pointer?: string;
   onClick?: Function;
   children?: React.ReactNode;
@@ -55,4 +56,5 @@ const CustomBox = styled.div<Props>`
   border-left: ${(props) => (props.borderl ? props.borderl : "")};
   border-right: ${(props) => (props.borderr ? props.borderr : "")};
   border-radius: ${(props) => props.border_radius};
+  background-color: ${(props) => props.bg};
 `;
