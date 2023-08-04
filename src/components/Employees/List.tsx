@@ -60,19 +60,17 @@ export default function Home() {
         </Box>
       </Box>
       {visualization == true ? <HeadingRow /> : null}
-      {visualization
-        ? users.map((user, key) => {
-            return <Row user={user} key={key} />;
-          })
-        : (
-          <Box flex="true" flexwrap="true" gap="10">
-            {
-              users.map((user, key) => {
-                return <Card user={user} key={key} />;
-              })
-            }
-          </Box>
-        )}
+      {visualization ? (
+        users.map((user, key) => {
+          return <Row user={user} key={key} />;
+        })
+      ) : (
+        <Box flex="true" flexwrap="true" gap="10">
+          {users.map((user, key) => {
+            return <Card user={user} key={key} />;
+          })}
+        </Box>
+      )}
     </Box>
   );
 }
