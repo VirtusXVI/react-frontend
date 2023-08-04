@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props {
   flex?: string;
+  flexwrap?: string;
   align?: string;
   justify?: string;
   width?: string;
@@ -23,6 +24,7 @@ interface Props {
   bg?: string;
   cursor_pointer?: string;
   onClick?: Function;
+  gap?: string;
   children?: React.ReactNode;
 }
 
@@ -47,6 +49,7 @@ const CustomBox = styled.div<Props>`
   padding-left: ${(props) => (props.paddingl ? props.paddingl + "px" : 0)};
   padding-right: ${(props) => (props.paddingr ? props.paddingr + "px" : 0)};
   display: ${(props) => (props.flex ? "flex" : "block")};
+  flex-wrap: ${(props) => (props.flexwrap ? "wrap" : "")};
   cursor: ${(props) => (props.cursor_pointer ? "pointer" : '')};
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
@@ -57,4 +60,5 @@ const CustomBox = styled.div<Props>`
   border-right: ${(props) => (props.borderr ? props.borderr : "")};
   border-radius: ${(props) => props.border_radius};
   background-color: ${(props) => props.bg};
+  gap: ${(props) => (props.gap ? props.gap + "px" : "")};
 `;

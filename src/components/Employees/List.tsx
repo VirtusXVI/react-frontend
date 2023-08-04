@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import Box from "../common/Box";
-import { Grid } from "../../assets/Grid";
-import { Rows } from "../../assets/Rows";
+import Row from "./Row";
+import Card from "./Card";
+import HeadingRow from "./HeadingRow";
+import { Grid, Rows } from "../../assets/VisualizationIcons";
 import axios from "axios";
 
 interface User {
@@ -28,16 +30,17 @@ export default function Home() {
     <Box paddingl="10" paddingr="10" marginb="20">
       <Box
         margint="10"
+        marginb="10"
         flex={"true"}
         height="50"
         align="center"
         justify="flex-end"
       >
         <Box
-          height="30"
+          height="40"
           width="40"
           marginr="10"
-          border="1px solid black"
+          border="1px solid grey"
           border_radius="25px"
           flex="1"
           align="center"
@@ -46,58 +49,30 @@ export default function Home() {
           onClick={() => setVisualization(!visualization)}
         >
           {visualization ? (
-            <Box>
+            <Box height="20" width="20">
               <Rows />
             </Box>
           ) : (
-            <Box>
+            <Box height="20" width="20">
               <Grid />
             </Box>
           )}
         </Box>
       </Box>
-      {visualization == true ? (
-        <Box>
-          <Box
-            height="40"
-            border="1px solid black"
-            paddingl="10"
-            paddingr="10"
-            flex="true"
-            bg="lightgrey"
-          >
-            <Box flex="true" align="center">
-              Full Name
-            </Box>
-            <Box flex="true" align="center">
-              Job Title
-            </Box>
-          </Box>
-        </Box>
-      ) : null}
+      {visualization == true ? <HeadingRow /> : null}
       {visualization
         ? users.map((user, key) => {
-            return (
-              <Box>
-                <Box
-                  key={key}
-                  height="40"
-                  border="1px solid black"
-                  paddingl="10"
-                  paddingr="10"
-                  flex="true"
-                >
-                  <Box flex="true" align="center">
-                    {user.firstName + " " + user.lastName}
-                  </Box>
-                  <Box flex="true" align="center">
-                    {user.jobTitle}
-                  </Box>
-                </Box>
-              </Box>
-            );
+            return <Row user={user} key={key} />;
           })
-        : null}
+        : (
+          <Box flex="true" flexwrap="true" gap="10">
+            {
+              users.map((user, key) => {
+                return <Card user={user} key={key} />;
+              })
+            }
+          </Box>
+        )}
     </Box>
   );
 }

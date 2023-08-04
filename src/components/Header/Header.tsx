@@ -20,7 +20,7 @@ export default function Header(props: Props) {
   ]);
   return (
     <>
-      <Box flex={+true} height={"60"} borderb="1px solid black">
+      <Box flex={+true} height={"60"} borderb="1px solid grey">
         {sections.map((section) => {
           return (
             <HeaderElement
