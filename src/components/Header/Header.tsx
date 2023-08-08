@@ -9,10 +9,11 @@ interface Section {
 
 interface Props {
   setSection: (id: number) => void;
+  activeSection: number
 }
 
 export default function Header(props: Props) {
-  const { setSection } = props;
+  const { setSection, activeSection } = props;
   const [sections] = useState<Section[]>([
     { id: 1, title: "Employees" },
     { id: 2, title: "Stats" },
@@ -27,6 +28,7 @@ export default function Header(props: Props) {
               key={section.id}
               section={section}
               setSection={setSection}
+              activeSection={activeSection}
             ></HeaderElement>
           );
         })}

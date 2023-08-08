@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <Box>
-      <Header setSection={setSection} />
+      <Header setSection={setSection} activeSection={activeSection} />
       {activeSection === 1 ? (
         <List />
       ) : activeSection === 2 ? (

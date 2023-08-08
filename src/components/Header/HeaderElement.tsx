@@ -1,9 +1,11 @@
 import React from "react";
 import Box from "../common/Box";
+import { styled } from "styled-components";
 
 interface Props {
   section: Section;
   setSection: (id: number) => void;
+  activeSection: number
 }
 
 interface Section {
@@ -21,7 +23,13 @@ export default function HeaderElement(props: Props) {
       cursor_pointer="true"
       onClick={() => setSection(section.id)}
     >
-      {section.title}
+      <Box
+        height="25"
+        width="100"
+      >
+        {section.title}
+        { props.activeSection == props.section.id ? <Box height="2" bg="black"/> : null}
+      </Box>
     </Box>
   );
 }
