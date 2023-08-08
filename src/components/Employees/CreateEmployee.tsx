@@ -25,8 +25,7 @@ export default function CreateEmployee(props: Props) {
       flex="true"
       align="center"
       justify="center"
-      style={{ height: "100vh" }}
-      onClick={createEmployee}
+      style={{ height: '100vh' }}
     >
       <Box
         height="500"
@@ -34,10 +33,18 @@ export default function CreateEmployee(props: Props) {
         border_radius="25"
         bg="lightgrey"
         padding="10"
+        position="relative"
       >
-        <Box>
-          ciao
+        <Box
+          onClick={createEmployee}
+          style={{ height: "auto" }}
+          flex="true"
+          align="center"
+          justify="flex-end"
+        >
+          <i style={{ cursor: "pointer" }} className="fa-solid fa-xmark"></i>
         </Box>
+        <Box style={{ height: "auto", fontSize: "2rem" }}>Create Employee</Box>
       </Box>
     </Box>
   );
