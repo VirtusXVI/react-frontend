@@ -22,10 +22,14 @@ export default function CreateEmployee(props: Props) {
       position="absolute"
       bg="rgba(0, 0, 0, 0.6)"
       top={"0"}
+      flex="true"
+      align="center"
+      justify="center"
+      style={{ height: '100vh' }}
       onClick={createEmployee}
     >
-      <Box>
-        
+      <Box height="400" width="400" border_radius="25" bg="lightgrey">
+
       </Box>
     </Box>
   );

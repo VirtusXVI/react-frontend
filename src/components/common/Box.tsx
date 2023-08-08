@@ -28,12 +28,13 @@ interface Props {
   top?: string;
   position?: string;
   children?: React.ReactNode;
+  style?: React.CSSProperties
 }
 
 export default function Box(props: Props) {
-  const { onClick } = props;
+  const { onClick, style } = props;
   return (
-    <CustomBox {...props} onClick={onClick}>
+    <CustomBox {...props} style={style} onClick={onClick}>
       {props.children}
     </CustomBox>
   );
