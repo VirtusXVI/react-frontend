@@ -37,7 +37,7 @@ export default function List() {
   return (
     <Box>
       <Box paddingl="10" paddingr="10">
-        <VisualizationButton visualization={visualization} setVisualization={setVisualization}/>
+        <VisualizationButton visualization={visualization} setVisualization={setVisualization} />
         <ListButtons createEmployee={createEmployee} />
         {visualization == true ? <HeadingRow /> : null}
         {visualization ? (

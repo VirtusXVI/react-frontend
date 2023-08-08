@@ -32,7 +32,7 @@ export default function CreateEmployee(props: Props) {
         width="500"
         border_radius="25"
         bg="lightgrey"
-        padding="10"
+        padding="15"
         position="relative"
       >
         <Box
@@ -44,7 +44,7 @@ export default function CreateEmployee(props: Props) {
         >
           <i style={{ cursor: "pointer" }} className="fa-solid fa-xmark"></i>
         </Box>
-        <Box style={{ height: "auto", fontSize: "2rem" }}>Create Employee</Box>
+        <Box style={{ height: "auto", fontSize: "2rem" }}>New Employee</Box>
       </Box>
     </Box>
   );
