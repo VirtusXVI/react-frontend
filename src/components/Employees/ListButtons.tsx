@@ -2,11 +2,11 @@ import React from 'react'
 import Box from '../common/Box'
 
 interface Props{
-  createEmployee: () => void
+  employeeModal: () => void
 }
 
 export default function ListButtons(props: Props) {
-  const { createEmployee } = props
+  const { employeeModal } = props
 
   return (
     <Box height="50" marginb="10">
@@ -18,7 +18,7 @@ export default function ListButtons(props: Props) {
         border_radius="25"
         width="50"
         cursor_pointer="true"
-        onClick={createEmployee}
+        onClick={employeeModal}
       >
         <i className="fa-solid fa-user-plus"></i>
       </Box>

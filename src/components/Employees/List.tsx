@@ -30,15 +30,18 @@ export default function List() {
     });
   }, []);
 
-  const createEmployee = () => {
+  const employeeModal = () => {
     setIsCreating(!isCreating);
   };
 
   return (
     <Box>
       <Box paddingl="10" paddingr="10">
-        <VisualizationButton visualization={visualization} setVisualization={setVisualization} />
-        <ListButtons createEmployee={createEmployee} />
+        <VisualizationButton
+          visualization={visualization}
+          setVisualization={setVisualization}
+        />
+        <ListButtons employeeModal={employeeModal} />
         {visualization == true ? <HeadingRow /> : null}
         {visualization ? (
           users.map((user, key) => {
@@ -52,7 +55,7 @@ export default function List() {
           </Box>
         )}
       </Box>
-      {isCreating ? <CreateEmployee createEmployee={createEmployee} /> : null}
+      {isCreating ? <CreateEmployee employeeModal={employeeModal} /> : null}
     </Box>
   );
 }
