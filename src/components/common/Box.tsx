@@ -25,6 +25,8 @@ interface Props {
   cursor_pointer?: string;
   onClick?: Function;
   gap?: string;
+  top?: string;
+  position?: string;
   children?: React.ReactNode;
 }
 
@@ -37,6 +39,7 @@ export default function Box(props: Props) {
   );
 }
 
+// CAMBIARE, PER WIDTH E HEIGHT, IL VALORE SE E' FALSO A STRINGA VUOTA
 const CustomBox = styled.div<Props>`
   height: ${(props) => (props.height ? props.height + "px" : "100%")};
   width: ${(props) => (props.width ? props.width + "px" : "100%")};
@@ -50,7 +53,7 @@ const CustomBox = styled.div<Props>`
   padding-right: ${(props) => (props.paddingr ? props.paddingr + "px" : 0)};
   display: ${(props) => (props.flex ? "flex" : "block")};
   flex-wrap: ${(props) => (props.flexwrap ? "wrap" : "")};
-  cursor: ${(props) => (props.cursor_pointer ? "pointer" : '')};
+  cursor: ${(props) => (props.cursor_pointer ? "pointer" : "")};
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justify};
   border: ${(props) => props.border};
@@ -58,7 +61,9 @@ const CustomBox = styled.div<Props>`
   border-bottom: ${(props) => (props.borderb ? props.borderb : "")};
   border-left: ${(props) => (props.borderl ? props.borderl : "")};
   border-right: ${(props) => (props.borderr ? props.borderr : "")};
-  border-radius: ${(props) => props.border_radius};
+  border-radius: ${(props) => (props.border_radius ? props.border_radius + "px" : "")};
   background-color: ${(props) => props.bg};
+  position: ${(props) => (props.position ? props.position : "")};
+  top: ${(props) => (props.top ? props.top : "")};
   gap: ${(props) => (props.gap ? props.gap + "px" : "")};
 `;

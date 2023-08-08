@@ -13,7 +13,7 @@ export default function Home() {
   };
 
   return (
-    <Box>
+    <Box position="relative">
       <Header setSection={setSection} activeSection={activeSection} />
       {activeSection === 1 ? (
         <List />

@@ -1,6 +1,4 @@
-import React from "react";
 import Box from "../common/Box";
-import { styled } from "styled-components";
 
 interface Props {
   section: Section;
