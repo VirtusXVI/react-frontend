@@ -25,11 +25,19 @@ export default function CreateEmployee(props: Props) {
       flex="true"
       align="center"
       justify="center"
-      style={{ height: '100vh' }}
+      style={{ height: "100vh" }}
       onClick={createEmployee}
     >
-      <Box height="400" width="400" border_radius="25" bg="lightgrey">
-
+      <Box
+        height="500"
+        width="500"
+        border_radius="25"
+        bg="lightgrey"
+        padding="10"
+      >
+        <Box>
+          ciao
+        </Box>
       </Box>
     </Box>
   );
