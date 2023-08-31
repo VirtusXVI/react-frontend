@@ -10,10 +10,10 @@ interface Props {
 
 export default function CreateEmployee(props: Props) {
   const { employeeModal } = props;
-  let [firstName, setFirstName] = useState<string>('');
-  let [lastName, setLastName] = useState<string>('');
-  let [email, setEmail] = useState<string>('');
-  let [jobTitle, setJobTitle] = useState<string>('');
+  let [firstName, setFirstName] = useState<string>("");
+  let [lastName, setLastName] = useState<string>("");
+  let [email, setEmail] = useState<string>("");
+  let [jobTitle, setJobTitle] = useState<string>("");
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -25,10 +25,15 @@ export default function CreateEmployee(props: Props) {
   }, []);
 
   const createEmployee = () => {
-    axios.post("http://158.180.238.74:8080/employee", { firstName: firstName })
-    .then((response) => {
-      console.log(response);
-    });
+    axios
+      .post("http://158.180.238.74:8089/employee", {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      })
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   return (
@@ -66,10 +71,25 @@ export default function CreateEmployee(props: Props) {
           style={{ height: "auto" }}
           flexwrap="true"
         >
-          <Input name="first_name" text="First Name" type="text" onChange={setFirstName} />
-          <Input name="last_name" text="Last Name" type="text" onChange={setLastName} />
+          <Input
+            name="first_name"
+            text="First Name"
+            type="text"
+            onChange={setFirstName}
+          />
+          <Input
+            name="last_name"
+            text="Last Name"
+            type="text"
+            onChange={setLastName}
+          />
           <Input name="email" text="Email" type="email" onChange={setEmail} />
-          <Input name="job_title" text="Job Title" type="text" onChange={setJobTitle} />
+          <Input
+            name="job_title"
+            text="Job Title"
+            type="text"
+            onChange={setJobTitle}
+          />
         </Box>
         <Button text="Create" onClick={createEmployee} />
       </Box>
