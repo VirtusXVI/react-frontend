@@ -25,7 +25,8 @@ export default function CreateEmployee(props: Props) {
   }, []);
 
   const createEmployee = () => {
-    axios.post("http://158.180.238.74:8089/employee").then((response) => {
+    axios.post("http://158.180.238.74:8080/employee", { firstName: firstName })
+    .then((response) => {
       console.log(response);
     });
   };

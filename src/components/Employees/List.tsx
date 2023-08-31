@@ -25,7 +25,7 @@ export default function List() {
   // let [isEditing, setIsEditing] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get<User[]>("http://158.180.238.74:8089/request").then((response) => {
+    axios.get<User[]>("http://158.180.238.74:8080/request").then((response) => {
       setUsers(response.data);
     });
   }, []);
